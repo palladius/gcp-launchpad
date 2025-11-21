@@ -1,7 +1,0 @@
-
-list:
-	just -l
-
-
-gemini-canvas:
-	npm start -- --cwd `pwd`

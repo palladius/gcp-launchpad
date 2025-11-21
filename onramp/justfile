@@ -1,7 +1,0 @@
-
-# lists available tasks in onramp/ folder
-list:
-    just -l
-
-onramp:
-    npm start -- --port=8080

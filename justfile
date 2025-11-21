@@ -16,4 +16,4 @@ serve-index:
     npm start
 
 onramp:
-    npm start -- --port=8080 --cwd onramp/  2>&1 | tee log/onramp.geminilog
+    npm start -- --port=8080 --cwd onramp-new/  2>&1 | tee log/onramp.geminilog
