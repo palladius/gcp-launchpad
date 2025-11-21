@@ -18,12 +18,6 @@
 		<div class="reveal">
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-                <section>
-                    <h1>Onramp to Google Cloud</h1>
-                    <h3 id="event-title"></h3>
-                    <p id="event-description"></p>
-                    <p><a id="event-url" href="" target="_blank"></a></p>
-                </section>
 			</div>
 		</div>
 		<script src="../dist/reveal.js"></script>
@@ -34,13 +28,7 @@
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-
+			
             function getQueryParam(param) {
                 const urlParams = new URLSearchParams(window.location.search);
                 return urlParams.get(param);
@@ -53,14 +41,48 @@
                 const eventConfig = config.events[event];
 
                 if (eventConfig) {
-                    document.getElementById('event-title').textContent = eventConfig.title;
-                    document.getElementById('event-description').textContent = eventConfig.description;
-                    const eventUrlElement = document.getElementById('event-url');
-                    eventUrlElement.href = eventConfig.credit_reclaim_url;
-                    eventUrlElement.textContent = eventConfig.credit_reclaim_url;
+                    document.title = eventConfig.title;
+
+                    const slidesContainer = document.querySelector('.slides');
+
+                    // Create the title slide
+                    const titleSlide = document.createElement('section');
+                    titleSlide.innerHTML = `
+                        <h1>${eventConfig.title} ${eventConfig.emoji}</h1>
+                        <p>${eventConfig.description}</p>
+                        <p>Get your credits at: <a id="event-url" href="${eventConfig.credit_reclaim_url}" target="_blank">${eventConfig.credit_reclaim_url}</a></p>
+                    `;
+                    slidesContainer.appendChild(titleSlide);
+
+                    const slidesResponse = await fetch('slides.html');
+                    const slidesText = await slidesResponse.text();
+                    const parser = new DOMParser();
+                    const slidesDoc = parser.parseFromString(slidesText, 'text/html');
+                    const sections = slidesDoc.querySelectorAll('section');
+
+                    const chapterMap = {
+                        'onramp': 'show_onramp_pages',
+                        'gemini-cli': 'show_gemini_cli_installation',
+                        'antigravity': 'show_antigravity_pages',
+                        'gemini-api-key': 'show_gemini_api_key_pages'
+                    };
+
+                    sections.forEach(section => {
+                        const chapter = section.dataset.chapter;
+                        if (chapter && eventConfig[chapterMap[chapter]]) {
+                            slidesContainer.appendChild(section);
+                        }
+                    });
+
                 } else {
-                    document.getElementById('event-title').textContent = 'Event not found!';
+                    document.querySelector('.slides').innerHTML = '<section><h1>Event not found!</h1></section>';
                 }
+
+                Reveal.initialize({
+                    hash: true,
+                    // Learn about plugins: https://revealjs.com/plugins/
+                    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+                });
             }
 
             loadConfig();

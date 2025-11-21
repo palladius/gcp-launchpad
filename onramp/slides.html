@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Onramp to Google Cloud</title>
+
+		<meta name="description" content="Onramp to Google Cloud">
+		<meta name="author" content="Riccardo Carlesso">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-chapter="onramp">
+					<h1>Reclaim your credits</h1>
+                    <p><a href="https://goo.gle/php-ws-ai">goo.gle/php-ws-ai</a></p>
+				</section>
+                <section data-chapter="onramp">
+                    <h2>Table of Contents</h2>
+                    <ul>
+                        <li>02 Reclaim credits</li>
+                        <li>20 AppMod Codelab Explained</li>
+                        <li>56 Goodies (Gemini API Key from AI studio, ..)</li>
+                    </ul>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Welcome to today's workshop!</h2>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Breathing new life into a legacy application</h2>
+                    <ul>
+                        <li>Take an old app from github</li>
+                        <li>Fork it</li>
+                        <li>Dockerize it</li>
+                        <li>Push to Cloud Run + CLoud SQL</li>
+                        <li>Create CI/CD</li>
+                        <li>Move cleartext passwords to Secret Manager</li>
+                        <li>Create Cloud Function to call Gemini</li>
+                        <li>Set up SLOs</li>
+                        <li>Security</li>
+                        <li>…</li>
+                    </ul>
+                    <p><a href="https://codelabs.developers.google.com/codelabs/app-mod-workshop">https://codelabs.developers.google.com/codelabs/app-mod-workshop</a></p>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>You will use:</h2>
+                    <ul>
+                        <li>A personal Gmail account</li>
+                        <li>A personal laptop</li>
+                        <li>The Chrome browser</li>
+                    </ul>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Open this URL:</h2>
+                    <p id="event-url-placeholder"></p>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>You will need to be signed in</h2>
+                    <img data-src="images/slide_7.png">
+                </section>
+                <section data-chapter="onramp">
+                    <img data-src="images/slide_8.png">
+                </section>
+                <section data-chapter="onramp">
+                    <img data-src="images/slide_9.png">
+                </section>
+                <section data-chapter="onramp">
+                    <p>If you see a Billing page, click on top left “Google Cloud” until you see a Project selector on top left</p>
+                </section>
+                <section data-chapter="onramp">
+                    <p>Go to console.cloud.google.com</p>
+                    <img data-src="images/slide_11.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Create a new project (skip if you already created one)</h2>
+                    <img data-src="images/slide_12.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Creating a new project (skip if you already created one)</h2>
+                    <img data-src="images/slide_13.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Creating a new project (Skip if you already have one)</h2>
+                    <img data-src="images/slide_14.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Check that your project is billed correctly</h2>
+                    <ol>
+                        <li>Search for Billing or go to <a href="https://console.cloud.google.com/billing">https://console.cloud.google.com/billing</a></li>
+                        <li>Click on My projects tab</li>
+                        <li>Make sure your project is associated with the Google Cloud Platform Trial Billing Account</li>
+                    </ol>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Open Cloud Shell</h2>
+                    <img data-src="images/slide_16.png">
+                </section>
+                <section data-chapter="gemini-cli">
+                    <h2>Install Gemini CLI</h2>
+                </section>
+                <section data-chapter="antigravity">
+                    <h2>Antigravity</h2>
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2>Download your Gemini API Key</h2>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>

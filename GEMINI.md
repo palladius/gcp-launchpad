@@ -71,8 +71,13 @@ QR code can wait for v2.
 * You will make sure it logs STDOUT under some `log/` folder and will look it up.
 * You do the coding, and error checking.
 * We can both navigate to localhost:8080
-  * You can check basic functionality
+  * You can check basic functionality. Note you should be able to navigate through cursors (left and right to change slide).
   * I can check more sophisticated imagery and look and feel.
+
+## Testing
+
+* The final product should look loyal to the original:
+  * Page 1 of the rendered page should have same text and same images as slide 1 in `rag/public-slides/`
 
 ## URLs
 
