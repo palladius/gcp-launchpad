@@ -7,6 +7,10 @@ list:
 #     @echo "Starting server for onramp presentation..."
 #     @echo "Navigate to http://localhost:8000/onramp/onramp.html"
 #     @python3 -m http.server 8000
+serve-onramp:
+    @echo "Starting server for onramp presentation..."
+    @echo "Navigate to http://localhost:8000/onramp/onramp.html"
+    @python3 -m http.server 8000
 
 serve-index:
     npm start

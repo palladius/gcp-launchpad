@@ -1,0 +1,12 @@
+{
+  "general": {
+    "checkpointing": {
+      "enabled": true
+    }
+  },
+  "mcpServers": {
+     "playwright": {      "command": "npx",      "args": ["@playwright/mcp@latest"]    },
+    // "context7": {       "type": "http",       "url": "https://mcp.context7.com/mcp"    },
+    "chrome-devtools": { "command": "npx", "args": [ "chrome-devtools-mcp@latest" ] }
+  }
+}

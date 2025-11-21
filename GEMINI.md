@@ -67,9 +67,12 @@ QR code can wait for v2.
 
 ## Swim lanes
 
-* I will run NPM foreground job, via `just start` which indirectly calls some `npm start <xxx>` we maintain.
+* I will run NPM foreground job, via `just onramp` which indirectly calls some `npm start <xxx>` we maintain.
 * You will make sure it logs STDOUT under some `log/` folder and will look it up.
-* You do the coding, and error checking. I will navigate and tell you if it works!
+* You do the coding, and error checking.
+* We can both navigate to localhost:8080
+  * You can check basic functionality
+  * I can check more sophisticated imagery and look and feel.
 
 ## URLs
 
