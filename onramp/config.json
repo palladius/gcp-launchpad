@@ -13,7 +13,7 @@
         "milan": {
             "title": "Benvenuti a Milano!",
             "emoji": "🇮🇹",
-            "description": "A special event for our friends in Milan.",
+            "description": "A special event in Google Milan on ADK and Gemini CLI.",
             "credit_reclaim_url": "https://trygcp.dev/claim/h2-labs-milano25",
             "show_onramp_pages": true,
             "show_gemini_cli_installation": true,
