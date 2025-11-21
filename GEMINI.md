@@ -7,6 +7,11 @@ This is an easy thing, most of the time, but there can be issues, which is why w
 
 The slides can be found under `rag/`.
 
+## Coding
+
+Coding MUST use the `reveal.js` framework. This should be easy as this repo is a CLONE of it, so you can just look around
+for code, example and docs!
+
 ## The job
 
 I need you to transform the current slides in a "online reveal.js Slide deck", using `reveal.js` framework.
@@ -41,6 +46,30 @@ I want to be able to say:
 
 This should be also part of the configuration yaml/json
 
+## Onramp URL
+
+This is the most important part, which I want from version 1.0. should be something like this:
+
+```html
+<!-- pseducode - dont take it literally! -->
+{{ if onramp_url == '' }}
+ <div class='redflag'>
+   Sorry, to do this codelab you need to be given a URL from a Google expert. Blah blah
+ </div>
+{{ else }}
+  Get credits at <a href=""></a>
+  <img src=".." /> <!-- QR Code for this URL -->
+{{ endif }}
+```
+
+A QR code should be generated for each URL, possibly only once (build time, not render time) but I'm flex.
+QR code can wait for v2.
+
+## Swim lanes
+
+* I will run NPM foreground job, via `just start` which indirectly calls some `npm start <xxx>` we maintain.
+* You will make sure it logs STDOUT under some `log/` folder and will look it up.
+* You do the coding, and error checking. I will navigate and tell you if it works!
 
 ## URLs
 
