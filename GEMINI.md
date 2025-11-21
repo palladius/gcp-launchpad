@@ -79,6 +79,13 @@ QR code can wait for v2.
 * The final product should look loyal to the original:
   * Page 1 of the rendered page should have same text and same images as slide 1 in `rag/public-slides/`
 
+## Publishing
+
+* Publish to github pages.
+* ANYTHING works, EXCEPT https://palladius.github.io/ since its taken.
+* DO NOT PICK THAT EXACT URL - Anything else is good!
+* Let's ensure behaviour is DRY - not a branch which gets far away from `main` very soon.
+
 ## URLs
 
 * Web page: trygcp.dev
