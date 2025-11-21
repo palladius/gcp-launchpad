@@ -1,0 +1,24 @@
+{
+    "events": {
+        "default": {
+            "title": "Welcome!",
+            "emoji": "🎉",
+            "description": "This is the default event.",
+            "credit_reclaim_url": "https://trygcp.dev/claim/default",
+            "show_onramp_pages": true,
+            "show_gemini_cli_installation": false,
+            "show_antigravity_pages": false,
+            "show_gemini_api_key_pages": false
+        },
+        "milan": {
+            "title": "Benvenuti a Milano!",
+            "emoji": "🇮🇹",
+            "description": "A special event in Google Milan on ADK and Gemini CLI.",
+            "credit_reclaim_url": "https://trygcp.dev/claim/h2-labs-milano25",
+            "show_onramp_pages": true,
+            "show_gemini_cli_installation": true,
+            "show_antigravity_pages": false,
+            "show_gemini_api_key_pages": true
+        }
+    }
+}
