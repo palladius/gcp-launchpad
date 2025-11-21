@@ -298,6 +298,10 @@ gulp.task('reload', () => gulp.src(['index.html'])
 
 gulp.task('serve', () => {
 
+    console.log('--- SERVER ROOT ---');
+    console.log(root);
+    console.log('-------------------');
+
     connect.server({
         root: root,
         port: port,

@@ -12,566 +12,289 @@
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		
-
-				<link rel="stylesheet" href="dist/reset.css">
-
-				<link rel="stylesheet" href="dist/reveal.css">
-
-				<link rel="stylesheet" href="dist/theme/black.css" id="theme">
-
-		
-
-				<!-- Theme used for syntax highlighting of code -->
-
-				<link rel="stylesheet" href="plugin/highlight/monokai.css">
-
-			</head>
-
-		
-
-			<body>
-
-		
-
-				<div class="reveal">
-
-		
-
-					<!-- Any section element inside of this container is displayed as a slide -->
-
-					            <div class="slides">
-
-					                <section data-chapter="onramp">
-
-					                    					<h1>Reclaim your credits</h1>
-
-					                                        <p><a href="https://goo.gle/php-ws-ai">goo.gle/php-ws-ai</a></p>
-
-					                                        <div class="r-hstack justify-center">
-
-					                                            <img data-src="images/slide-000/image.png" alt="Developers at a workshop" style="height: 300px; margin: 10px;">
-
-					                                            <img data-src="images/slide-001/image.png" alt="QR Code" style="height: 300px; margin: 10px;">
-
-					                                        </div>
-
-					                    				</section>			                <section data-chapter="onramp">
-
-					                    <h2>Table of Contents</h2>
-
-					                    <ul>
-
-					                        <li>02 Reclaim credits</li>
-
-					                        <li>20 AppMod Codelab Explained</li>
-
-					                        <li>56 Goodies (Gemini API Key from AI studio, ..)</li>
-
-					                    </ul>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Welcome to today's workshop!</h2>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Breathing new life into a legacy application</h2>
-
-					                    <ul>
-
-					                        <li>Take an old app from github</li>
-
-					                        <li>Fork it</li>
-
-					                        <li>Dockerize it</li>
-
-					                        <li>Push to Cloud Run + CLoud SQL</li>
-
-					                        <li>Create CI/CD</li>
-
-					                        <li>Move cleartext passwords to Secret Manager</li>
-
-					                        <li>Create Cloud Function to call Gemini</li>
-
-					                        <li>Set up SLOs</li>
-
-					                        <li>Security</li>
-
-					                        <li>…</li>
-
-					                    </ul>
-
-					                    <p><a href="https://codelabs.developers.google.com/codelabs/app-mod-workshop">https://codelabs.developers.google.com/codelabs/app-mod-workshop</a></p>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>You will use:</h2>
-
-					                    <ul>
-
-					                        <li>A personal Gmail account</li>
-
-					                        <li>A personal laptop</li>
-
-					                        <li>The Chrome browser</li>
-
-					                    </ul>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Open this URL:</h2>
-
-					                    <p id="event-url-placeholder"></p>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>You will need to be signed in</h2>
-
-					                    <img data-src="images/slide-006/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <img data-src="images/slide-007/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <img data-src="images/slide-008/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <p>If you see a Billing page, click on top left “Google Cloud” until you see a Project selector on top left</p>
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <p>Go to console.cloud.google.com</p>
-
-					                    <img data-src="images/slide-010/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Create a new project (skip if you already created one)</h2>
-
-					                    <img data-src="images/slide-011/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Creating a new project (skip if you already created one)</h2>
-
-					                    <img data-src="images/slide-012/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Creating a new project (Skip if you already have one)</h2>
-
-					                    <img data-src="images/slide-013/image.png">
-
-					                </section>
-
-					                <section data-chapter="onramp">
-
-					                    <h2>Check that your project is billed correctly</h2>
-
-					                    <ol>
-
-					                        <li>Search for Billing or go to <a href="https://console.cloud.google.com/billing">https://console.cloud.google.com/billing</a></li>
-
-					                        <li>Click on My projects tab</li>
-
-					                        <li>Make sure your project is associated with the Google Cloud Platform Trial Billing Account</li>
-
-					                    </ol>
-
-					                </section>
-
-					                                <section data-chapter="onramp">
-
-					                                    <h2>Open Cloud Shell</h2>
-
-					                                    <img data-src="images/slide-015/image.png">
-
-					                                </section>
-
-					                                <section>
-
-					                                    <h2>AppMod Codelab Explained</h2>
-
-					                                </section>
-
-					                                <section>
-
-					                                    <h2>Find this URL:</h2>
-
-					                                    <p><a href="https://codelabs.developers.google.com/codelabs/app-mod-workshop">https://codelabs.developers.google.com/codelabs/app-mod-workshop</a></p>
-
-					                                    <p>Or simply:</p>
-
-					                                    <p>Google “App Mod Workshop”</p>
-
-					                                </section>
-
-					                                <section>
-
-					                                    <h2>Does anyone remember LAMP stacks?</h2>
-
-					                                </section>
-
-					                                <section>
-
-					                                    <h2>󰏢 “PHP 5? Grande Giove!”</h2>
-
-					                                    <p>Hai una vecchia applicazione ferma al 2010, con Java8, Rails, PHP o, peggio ancora, ColdFusion? Password in chiaro ovunque, codice che fa arrossire… e l’idea di mostrarla a un collega ti terrorizza?</p>
-
-					                                    <p>Grande Giove! 🚀 È il momento di trasformarla in una macchina degna del futuro!</p>
-
-					                                    <img data-src="images/slide-024/image.png">
-
-					                                </section>
-
-					                                                <section>
-
-					                                                    <h2>󰧹 “PHP 5? Great Scott!”</h2>
-
-					                                                    <p>"Quick Marty, we must go to the future immediately! Jennifer's boss from 2015 wants to modernize a PHP application left to us in 1885 and we need you!</p>
-
-					                                                    <p>There are clear-text passwords injected on Github by a great-uncle of Biff, and the 2015’s Marty risks being fired!</p>
-
-					                                                    <p>Don't worry, our friends from Google Cloud will be there to help us, but the Tannen are always lurking!"</p>
-
-					                                                    <img data-src="images/slide-026/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>PHP 5.6 is 🪦dead ?</h2>
-
-					                                                    <p>An old app, in an unsupported language, the last dev has left, CTO wants you to add new features. Ever been there? You company cares about an app, but nobody knows how to put their hands on it?</p>
-
-					                                                    <p>How about we spend a few hours modernizing it and bringing into the 21st century?</p>
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>Hey, I don’t want to learn PHP in 2025!</h2>
-
-					                                                    <p>=> no: PHP 5.6 is perfect!</p>
-
-					                                                    <img data-src="images/slide-029/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>Scary things!</h2>
-
-					                                                    <p>I see cleartext passwords..</p>
-
-					                                                    <img data-src="images/slide-032/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>[Lab] PHP Amarcord</h2>
-
-					                                                    <p>💡In this Lab,...</p>
-
-					                                                    <p>● Follow Ricc’s <a href="https://github.com/palladius/app-mod-workshop-set-by-step/">https://github.com/palladius/app-mod-workshop-set-by-step/</a> README</p>
-
-					                                                    <p>⌛Time to complete: ~2-4h</p>
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: What are we doing today?</h2>
-
-					                                                    <img data-src="images/slide-035/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: Existing app</h2>
-
-					                                                    <img data-src="images/slide-041/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 0. Fork the original repo</h2>
-
-					                                                    <img data-src="images/slide-044/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 1. Create DataBase</h2>
-
-					                                                    <img data-src="images/slide-049/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 2. 🚀 Dockerize app</h2>
-
-					                                                    <img data-src="images/slide-053/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 3. 🚀 Deploy app to Cloud Run! App goes online: #gratification</h2>
-
-					                                                    <img data-src="images/slide-058/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 4. Clean up passwords: ENV + Secret Manager</h2>
-
-					                                                    <img data-src="images/slide-063/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 5. Set up Cloud Build pipeline: proper CI/CD!</h2>
-
-					                                                    <img data-src="images/slide-068/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 6. Adding Cloud Storage (GCS) and the “magic mount”</h2>
-
-					                                                    <img data-src="images/slide-076/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 7. Adding GCF+Gemini</h2>
-
-					                                                    <img data-src="images/slide-086/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord: 8. Adding Operations: Service Level Objectives (SLOs)</h2>
-
-					                                                    <img data-src="images/slide-098/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>♊ PHP Amarcord v1.3</h2>
-
-					                                                    <img data-src="images/slide-103/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>Leaderboard</h2>
-
-					                                                    <p>🏆 If you want to win a prize check this Workshop Leaderboard [optional]</p>
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>Clean up</h2>
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>1. Stop your instance</h2>
-
-					                                                    <img data-src="images/slide-113/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>2. Delete your instance</h2>
-
-					                                                    <p>[optional]</p>
-
-					                                                    <p>While this is not strictly necessary (a stopped istance will consume very little), you might want to delete an instance. If you have created an instance with “protection from deletion”, stopping it makes it actually harder to delete. If the deletion button won’t work for you, follow the steps in following slides, which can be summarized this way:</p>
-
-					                                                    <ol>
-
-					                                                        <li>Restart the instance [if needed]</li>
-
-					                                                        <li>Remove the delete protection [if in place]</li>
-
-					                                                        <li>Stop</li>
-
-					                                                        <li>Click delete</li>
-
-					                                                    </ol>
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>2. Delete your instance (⅓)</h2>
-
-					                                                    <img data-src="images/slide-118/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>2. Delete your instance (2/3)</h2>
-
-					                                                    <img data-src="images/slide-121/image.png">
-
-					                                                </section>
-
-					                                                <section>
-
-					                                                    <h2>2. Delete your instance (3/3)</h2>
-
-					                                                    <img data-src="images/slide-123/image.png">
-
-					                                                </section>
-
-					                                                <section data-chapter="gemini-cli">
-
-					                                                    <h2>Install Gemini CLI</h2>
-
-					                                                </section>			                <section data-chapter="antigravity">
-
-					                    <h2>Antigravity</h2>
-
-					                </section>
-
-					                                <section data-chapter="gemini-api-key">
-
-					                                    <h2>Gemini API KEY Setup (optional)</h2>
-
-					                                </section>
-
-					                                <section data-chapter="gemini-api-key">
-
-					                                    <h2><a href="https://ai.google.dev/gemini-api/docs/api-key">https://ai.google.dev/gemini-api/docs/api-key</a></h2>
-
-					                                    <img data-src="images/slide-597/image.png">
-
-					                                </section>
-
-					                                <section data-chapter="gemini-api-key">
-
-					                                    <h2>1. Select project</h2>
-
-					                                    <h2>2. Click to create key within that project</h2>
-
-					                                    <img data-src="images/slide-601/image.png">
-
-					                                </section>
-
-					                                <section data-chapter="gemini-api-key">
-
-					                                    <h2>Tip: Usually it starts with “AIza”</h2>
-
-					                                    <img data-src="images/slide-604/image.png">
-
-					                                </section>
-
-					                                <section data-chapter="gemini-api-key">
-
-					                                    <h2>Congratulations !</h2>
-
-					                                    <p>You are all set to start developing with Google Cloud and invoking Gemini!</p>
-
-					                                </section>
-
-					                			</div>		</div>
-
-		
-
-				<script src="dist/reveal.js"></script>
-
-				<script src="plugin/zoom/zoom.js"></script>
-
-				<script src="plugin/notes/notes.js"></script>
-
-				<script src="plugin/search/search.js"></script>
-
-				<script src="plugin/markdown/markdown.js"></script>
-
-				<script src="plugin/highlight/highlight.js"></script>
-
-				<script>
-
-		
-
-					// Also available as an ES module, see:
-
-					// https://revealjs.com/initialization/
-
-					Reveal.initialize({
-
-						controls: true,
-
-						progress: true,
-
-						center: true,
-
-						hash: true,
-
-		
-
-						// Learn about plugins: https://revealjs.com/plugins/
-
-						plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-
-					});
-
-		
-
-				</script>
-
-		
-
-			</body>
-
-		</html>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="../dist/reset.css">
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-chapter="onramp">
+					<h1>Reclaim your credits</h1>
+                    <p><a href="https://goo.gle/php-ws-ai">goo.gle/php-ws-ai</a></p>
+                    <div class="r-hstack justify-center">
+                        <img data-src="images/slide-000/image.png" alt="Developers at a workshop" style="height: 300px; margin: 10px;">
+                        <img data-src="images/slide-001/image.png" alt="QR Code" style="height: 300px; margin: 10px;">
+                    </div>
+				</section>
+                <section data-chapter="onramp">
+                    <h2>Table of Contents</h2>
+                    <ul>
+                        <li>02 Reclaim credits</li>
+                        <li>20 AppMod Codelab Explained</li>
+                        <li>56 Goodies (Gemini API Key from AI studio, ..)</li>
+                    </ul>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Welcome to today's workshop!</h2>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Breathing new life into a legacy application</h2>
+                    <ul>
+                        <li>Take an old app from github</li>
+                        <li>Fork it</li>
+                        <li>Dockerize it</li>
+                        <li>Push to Cloud Run + CLoud SQL</li>
+                        <li>Create CI/CD</li>
+                        <li>Move cleartext passwords to Secret Manager</li>
+                        <li>Create Cloud Function to call Gemini</li>
+                        <li>Set up SLOs</li>
+                        <li>Security</li>
+                        <li>…</li>
+                    </ul>
+                    <p><a href="https://codelabs.developers.google.com/codelabs/app-mod-workshop">https://codelabs.developers.google.com/codelabs/app-mod-workshop</a></p>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>You will use:</h2>
+                    <ul>
+                        <li>A personal Gmail account</li>
+                        <li>A personal laptop</li>
+                        <li>The Chrome browser</li>
+                    </ul>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Open this URL:</h2>
+                    <p id="event-url-placeholder"></p>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>You will need to be signed in</h2>
+                    <img data-src="images/slide-006/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <img data-src="images/slide-007/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <img data-src="images/slide-008/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <p>If you see a Billing page, click on top left “Google Cloud” until you see a Project selector on top left</p>
+                </section>
+                <section data-chapter="onramp">
+                    <p>Go to console.cloud.google.com</p>
+                    <img data-src="images/slide-010/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Create a new project (skip if you already created one)</h2>
+                    <img data-src="images/slide-011/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Creating a new project (skip if you already created one)</h2>
+                    <img data-src="images/slide-012/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Creating a new project (Skip if you already have one)</h2>
+                    <img data-src="images/slide-013/image.png">
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Check that your project is billed correctly</h2>
+                    <ol>
+                        <li>Search for Billing or go to <a href="https://console.cloud.google.com/billing">https://console.cloud.google.com/billing</a></li>
+                        <li>Click on My projects tab</li>
+                        <li>Make sure your project is associated with the Google Cloud Platform Trial Billing Account</li>
+                    </ol>
+                </section>
+                <section data-chapter="onramp">
+                    <h2>Open Cloud Shell</h2>
+                    <img data-src="images/slide-015/image.png">
+                </section>
+                <section>
+                    <h2>AppMod Codelab Explained</h2>
+                </section>
+                <section>
+                    <h2>Find this URL:</h2>
+                    <p><a href="https://codelabs.developers.google.com/codelabs/app-mod-workshop">https://codelabs.developers.google.com/codelabs/app-mod-workshop</a></p>
+                    <p>Or simply:</p>
+                    <p>Google “App Mod Workshop”</p>
+                </section>
+                <section>
+                    <h2>Does anyone remember LAMP stacks?</h2>
+                </section>
+                <section>
+                    <h2>󰏢 “PHP 5? Grande Giove!”</h2>
+                    <p>Hai una vecchia applicazione ferma al 2010, con Java8, Rails, PHP o, peggio ancora, ColdFusion? Password in chiaro ovunque, codice che fa arrossire… e l’idea di mostrarla a un collega ti terrorizza?</p>
+                    <p>Grande Giove! 🚀 È il momento di trasformarla in una macchina degna del futuro!</p>
+                    <img data-src="images/slide-024/image.png">
+                </section>
+                <section>
+                    <h2>󰧹 “PHP 5? Great Scott!”</h2>
+                    <p>"Quick Marty, we must go to the future immediately! Jennifer's boss from 2015 wants to modernize a PHP application left to us in 1885 and we need you!</p>
+                    <p>There are clear-text passwords injected on Github by a great-uncle of Biff, and the 2015’s Marty risks being fired!</p>
+                    <p>Don't worry, our friends from Google Cloud will be there to help us, but the Tannen are always lurking!"</p>
+                    <img data-src="images/slide-026/image.png">
+                </section>
+                <section>
+                    <h2>PHP 5.6 is 🪦dead ?</h2>
+                    <p>An old app, in an unsupported language, the last dev has left, CTO wants you to add new features. Ever been there? You company cares about an app, but nobody knows how to put their hands on it?</p>
+                    <p>How about we spend a few hours modernizing it and bringing into the 21st century?</p>
+                </section>
+                <section>
+                    <h2>Hey, I don’t want to learn PHP in 2025!</h2>
+                    <p>=> no: PHP 5.6 is perfect!</p>
+                    <img data-src="images/slide-029/image.png">
+                </section>
+                <section>
+                    <h2>Scary things!</h2>
+                    <p>I see cleartext passwords..</p>
+                    <img data-src="images/slide-032/image.png">
+                </section>
+                <section>
+                    <h2>[Lab] PHP Amarcord</h2>
+                    <p>💡In this Lab,...</p>
+                    <p>● Follow Ricc’s <a href="https://github.com/palladius/app-mod-workshop-set-by-step/">https://github.com/palladius/app-mod-workshop-set-by-step/</a> README</p>
+                    <p>⌛Time to complete: ~2-4h</p>
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: What are we doing today?</h2>
+                    <img data-src="images/slide-035/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: Existing app</h2>
+                    <img data-src="images/slide-041/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 0. Fork the original repo</h2>
+                    <img data-src="images/slide-044/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 1. Create DataBase</h2>
+                    <img data-src="images/slide-049/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 2. 🚀 Dockerize app</h2>
+                    <img data-src="images/slide-053/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 3. 🚀 Deploy app to Cloud Run! App goes online: #gratification</h2>
+                    <img data-src="images/slide-058/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 4. Clean up passwords: ENV + Secret Manager</h2>
+                    <img data-src="images/slide-063/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 5. Set up Cloud Build pipeline: proper CI/CD!</h2>
+                    <img data-src="images/slide-068/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 6. Adding Cloud Storage (GCS) and the “magic mount”</h2>
+                    <img data-src="images/slide-076/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 7. Adding GCF+Gemini</h2>
+                    <img data-src="images/slide-086/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord: 8. Adding Operations: Service Level Objectives (SLOs)</h2>
+                    <img data-src="images/slide-098/image.png">
+                </section>
+                <section>
+                    <h2>♊ PHP Amarcord v1.3</h2>
+                    <img data-src="images/slide-103/image.png">
+                </section>
+                <section>
+                    <h2>Leaderboard</h2>
+                    <p>🏆 If you want to win a prize check this Workshop Leaderboard [optional]</p>
+                </section>
+                <section>
+                    <h2>Clean up</h2>
+                </section>
+                <section>
+                    <h2>1. Stop your instance</h2>
+                    <img data-src="images/slide-113/image.png">
+                </section>
+                <section>
+                    <h2>2. Delete your instance</h2>
+                    <p>[optional]</p>
+                    <p>While this is not strictly necessary (a stopped istance will consume very little), you might want to delete an instance. If you have created an instance with “protection from deletion”, stopping it makes it actually harder to delete. If the deletion button won’t work for you, follow the steps in following slides, which can be summarized this way:</p>
+                    <ol>
+                        <li>Restart the instance [if needed]</li>
+                        <li>Remove the delete protection [if in place]</li>
+                        <li>Stop</li>
+                        <li>Click delete</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>2. Delete your instance (⅓)</h2>
+                    <img data-src="images/slide-118/image.png">
+                </section>
+                <section>
+                    <h2>2. Delete your instance (2/3)</h2>
+                    <img data-src="images/slide-121/image.png">
+                </section>
+                <section>
+                    <h2>2. Delete your instance (3/3)</h2>
+                    <img data-src="images/slide-123/image.png">
+                </section>
+                <section data-chapter="gemini-cli">
+                    <h2>Install Gemini CLI</h2>
+                </section>
+                <section data-chapter="antigravity">
+                    <h2>Antigravity</h2>
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2>Gemini API KEY Setup (optional)</h2>
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2><a href="https://ai.google.dev/gemini-api/docs/api-key">https://ai.google.dev/gemini-api/docs/api-key</a></h2>
+                    <img data-src="images/slide-597/image.png">
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2>1. Select project</h2>
+                    <h2>2. Click to create key within that project</h2>
+                    <img data-src="images/slide-601/image.png">
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2>Tip: Usually it starts with “AIza”</h2>
+                    <img data-src="images/slide-604/image.png">
+                </section>
+                <section data-chapter="gemini-api-key">
+                    <h2>Congratulations !</h2>
+                    <p>You are all set to start developing with Google Cloud and invoking Gemini!</p>
+                </section>
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/zoom/zoom.js"></script>
+		<script src="../plugin/notes/notes.js"></script>
+		<script src="../plugin/search/search.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+
+			// Also available as an ES module, see:
+			// https://revealjs.com/initialization/
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+			});
+
+		</script>
+
+	</body>
+</html>

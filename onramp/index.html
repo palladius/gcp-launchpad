@@ -1,91 +1,301 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Onramp to Google Cloud</title>
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="../dist/reset.css">
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/black.css" id="theme">
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-			</div>
-		</div>
-		<script src="../dist/reveal.js"></script>
-		<script src="../plugin/notes/notes.js"></script>
-		<script src="../plugin/markdown/markdown.js"></script>
-		<script src="../plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			
-            function getQueryParam(param) {
-                const urlParams = new URLSearchParams(window.location.search);
-                return urlParams.get(param);
-            }
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canonical Onramp + Gemini API Key v2.5.1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
+    <style>
+        /* Custom overrides for the presentation */
+        .reveal .slides section {
+            text-align: left;
+        }
+        .reveal .slides section.center {
+            text-align: center;
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+        }
+        .qr-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .qr-box {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            color: black;
+            text-align: center;
+        }
+        .qr-box img {
+            max-width: 150px;
+        }
+        .small-text {
+            font-size: 0.6em;
+        }
+        code {
+            color: #a6e22e;
+        }
+        .two-col {
+            display: flex;
+            gap: 2rem;
+        }
+        .col {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
 
-            async function loadConfig() {
-                const event = getQueryParam('event') || 'default';
-                const response = await fetch('config.json');
-                const config = await response.json();
-                const eventConfig = config.events[event];
+            <!-- Slide 1: Title & Links -->
+            <section class="center">
+                <h2>Canonical Onramp + Gemini API Key</h2>
+                <p>Riccardo Carlesso - Developer Advocate</p>
+                <div class="qr-container">
+                    <div class="qr-box">
+                        <strong>Slides</strong><br>
+                        <a href="https://goo.gle/adk-cli-slides" target="_blank">goo.gle/adk-cli-slides</a>
+                    </div>
+                    <div class="qr-box">
+                        <strong>Workshop</strong><br>
+                        <a href="https://goo.gle/adk-cli-workshop" target="_blank">goo.gle/adk-cli-workshop</a>
+                    </div>
+                    <div class="qr-box">
+                        <strong>Credits</strong><br>
+                        <a href="https://trygcp.dev/claim/h2-labs-milano25" target="_blank">trygcp.dev/claim/h2-labs-milano25</a>
+                    </div>
+                </div>
+            </section>
 
-                if (eventConfig) {
-                    document.title = eventConfig.title;
+            <!-- Slide 2: Table of Contents -->
+            <section>
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li>05 - 🏭 Workshop links</li>
+                    <li>07 - 💰 Reclaim credits</li>
+                    <li>20 - 🔑 Gemini API Key (optional)</li>
+                    <li>27 - 💻 Gemini CLI installation</li>
+                </ul>
+            </section>
 
-                    const slidesContainer = document.querySelector('.slides');
+            <!-- Slide 3: The Workshop -->
+            <section>
+                <h3>Workshop: Building a Simple Travel Agent</h3>
+                <p>We will build a simple travel agent step-by-step.</p>
+                <ul>
+                    <li><strong>Curiosity:</strong> Built by Riccardo with help from Gemini CLI.</li>
+                    <li><strong>Goal:</strong> Install software, configure env, and enter the "Golden Feedback Loop".</li>
+                </ul>
+                <div class="fragment fade-up">
+                    <h4>Prerequisites</h4>
+                    <pre><code class="bash"># 1. Install uv (Python package manager)
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
-                    // Create the title slide
-                    const titleSlide = document.createElement('section');
-                    titleSlide.innerHTML = `
-                        <h1>${eventConfig.title} ${eventConfig.emoji}</h1>
-                        <p>${eventConfig.description}</p>
-                        <p>Get your credits at: <a id="event-url" href="${eventConfig.credit_reclaim_url}" target="_blank">${eventConfig.credit_reclaim_url}</a></p>
-                    `;
-                    slidesContainer.appendChild(titleSlide);
+# 2. Install Gemini CLI (requires npm)
+npm install -g @google/gemini-cli
+</code></pre>
+                </div>
+            </section>
 
-                    const slidesResponse = await fetch('slides.html');
-                    const slidesText = await slidesResponse.text();
-                    const parser = new DOMParser();
-                    const slidesDoc = parser.parseFromString(slidesText, 'text/html');
-                    const sections = slidesDoc.querySelectorAll('section');
+            <!-- Slide 4: The Steps -->
+            <section>
+                <section>
+                    <h3>The Journey</h3>
+                    <p>Step 0: Set up your work environment</p>
+                    <pre><code class="bash">git clone https://github.com/palladius/ai-friendly-agents/
+cd adk/workshops/simple-travel-agent/
+mkdir -p mysolution/
+touch mysolution/__init__.py mysolution/agent.py
+gemini # Run Gemini CLI
+</code></pre>
+                </section>
+                <section class="center">
+                    <h3>Step 1: Basic Agent</h3>
+                    <p>Create a basic agent that can have a conversation.</p>
+                    <img src="images/slide-003/image.png" alt="Step 1 Robot">
+                </section>
+                <section class="center">
+                    <h3>Step 2: Tool Use</h3>
+                    <p>Give the agent tools to interact with the world.</p>
+                    <img src="images/slide-004/image.png" alt="Step 2 Robot">
+                </section>
+                <section class="center">
+                    <h3>Step 3: Search</h3>
+                    <p>"Hey, I can Search!"</p>
+                    <img src="images/slide-005/image.png" alt="Step 3 Robot">
+                </section>
+                <section class="center">
+                    <h3>Step 4: MCP</h3>
+                    <p>Connecting to external services (like Airbnb).</p>
+                    <img src="images/slide-006/image.png" alt="Step 4 Robot">
+                </section>
+            </section>
 
-                    const chapterMap = {
-                        'onramp': 'show_onramp_pages',
-                        'gemini-cli': 'show_gemini_cli_installation',
-                        'antigravity': 'show_antigravity_pages',
-                        'gemini-api-key': 'show_gemini_api_key_pages'
-                    };
+            <!-- Slide 5: Testimonials -->
+            <section class="center">
+                <h3>Dicono di Gemini CLI..</h3>
+                <p class="small-text">(What they say about Gemini CLI)</p>
+                <blockquote>
+                    "Sto scoprendo che gemini cli è una figata pazzesca 😂😂😂"
+                </blockquote>
+                <p><em>- Nicola</em></p>
+                <p>😎</p>
+            </section>
 
-                    sections.forEach(section => {
-                        const chapter = section.dataset.chapter;
-                        if (chapter && eventConfig[chapterMap[chapter]]) {
-                            slidesContainer.appendChild(section);
-                        }
-                    });
+            <!-- Slide 6: Prerequisites -->
+            <section>
+                <h3>You will need:</h3>
+                <ol>
+                    <li class="fragment">
+                        <strong>A personal Gmail account</strong><br>
+                        <span class="small-text">School/Business accounts cannot use workshop free credits.</span>
+                    </li>
+                    <li class="fragment">
+                        <strong>A personal laptop</strong><br>
+                        <span class="small-text">Ideally without strict network restrictions.</span>
+                    </li>
+                    <li class="fragment">
+                        <strong>The Chrome browser</strong><br>
+                        <span class="small-text">To minimize variations in the lab.</span>
+                    </li>
+                </ol>
+            </section>
 
-                } else {
-                    document.querySelector('.slides').innerHTML = '<section><h1>Event not found!</h1></section>';
-                }
+            <!-- Slide 7: Reclaiming Credits -->
+            <section>
+                <section class="center">
+                    <h2>Reclaim your $$ credits</h2>
+                    <p>Open this URL:</p>
+                    <a href="https://goo.gle/adk-cli-credits" target="_blank" style="font-size: 1.5em;">goo.gle/adk-cli-credits</a>
+                    <p><em>"I like money!"</em></p>
+                </section>
+                
+                <section>
+                    <h3>Steps to redeem</h3>
+                    <ol style="font-size: 0.8em;">
+                        <li>Click "Sign in with Google" (ensure it's your personal account).</li>
+                        <li>You will see "Developers Labs Milano 2025".</li>
+                        <li>Click <strong>"CLICK HERE TO ACCESS YOUR CREDITS"</strong>.</li>
+                        <li>Fill in Name/Email. Coupon code should be pre-filled.</li>
+                        <li>Click "Accept and Continue".</li>
+                    </ol>
+                </section>
 
-                Reveal.initialize({
-                    hash: true,
-                    // Learn about plugins: https://revealjs.com/plugins/
-                    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-                });
-            }
+                <section>
+                    <h3>Project Setup</h3>
+                    <ul>
+                        <li>Go to <a href="https://console.cloud.google.com" target="_blank">console.cloud.google.com</a></li>
+                        <li>Create a <strong>New Project</strong>.</li>
+                        <li>Name it (e.g., "Google Hackathon").</li>
+                        <li><strong>Billing Account:</strong> Select "Google Cloud Platform Trial Billing Account".</li>
+                        <li><strong>Location:</strong> Select "No Organization".</li>
+                    </ul>
+                    <p class="small-text" style="color: orange;">Note: Connecting to the Trial Billing Account is crucial to use your $50 credits.</p>
+                </section>
+            </section>
 
-            loadConfig();
-		</script>
-	</body>
+            <!-- Slide 8: Cloud Shell -->
+            <section class="center">
+                <h3>Open Cloud Shell</h3>
+                <p>Activate Cloud Shell (icon in top right toolbar).</p>
+                <img src="images/slide-015/image.png" alt="Cloud Shell">
+                <p class="small-text">It may take a minute or two to start your VM.</p>
+                <p><em>If you don't have a project set up yet, raise your hand! 🙋‍♂️🙋🏾‍♀️</em></p>
+            </section>
+
+            <!-- Slide 9: Gemini API Key -->
+            <section>
+                <section class="center">
+                    <h2>Gemini API Key (Optional)</h2>
+                    <a href="https://ai.google.dev/gemini-api/docs/api-key" target="_blank">ai.google.dev/gemini-api/docs/api-key</a>
+                </section>
+                <section>
+                    <h3>Get an API Key</h3>
+                    <img src="images/slide-601/image.png" alt="Get an API Key">
+                    <ol>
+                        <li>Click "Get an API key" in Google AI Studio.</li>
+                        <li>Select your Google Cloud project.</li>
+                        <li>Click "Create API key in existing project".</li>
+                        <li>Copy the key (usually starts with <code>AIza...</code>).</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Set Env Variable</h3>
+                    <img src="images/slide-604/image.png" alt="Set Environment Variable">
+                    <pre><code class="bash"># Set your key
+export GEMINI_API_KEY="AIzaSyA..."
+
+# Verify
+gemini
+</code></pre>
+                </section>
+            </section>
+
+            <!-- Slide 10: Gemini CLI -->
+            <section>
+                <section class="center">
+                    <h2>Gemini CLI</h2>
+                    <p>Open Source AI agent for your terminal.</p>
+                    <a href="https://goo.gle/gemini-cli" target="_blank">goo.gle/gemini-cli</a>
+                </section>
+                <section>
+                    <h3>Installation</h3>
+                    <pre><code class="bash"># Install via npm
+npm install -g @google/gemini-cli
+
+# Or use npx
+npx @google/gemini-cli
+</code></pre>
+                </section>
+                <section>
+                    <h3>Authentication</h3>
+                    <pre><code class="bash">> /auth</code></pre>
+                    <p>Choose how to authenticate:</p>
+                    <ol>
+                        <li>Login with Google (Recommended)</li>
+                        <li>Use Gemini API Key</li>
+                        <li>Vertex AI</li>
+                    </ol>
+                </section>
+            </section>
+
+            <!-- Slide 11: Closing -->
+            <section class="center">
+                <h2>Thank you!</h2>
+                <div class="two-col">
+                    <div class="col">
+                        <p><strong>Feedback</strong></p>
+                        <img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=https://docs.google.com/forms/d/19x1Dreko6ruoxJhXuNp2TZFDlG45hjaoZAc3nhwcado/viewform" alt="Feedback QR">
+                        <p class="small-text"><a href="https://twitter.com/sreccardo" target="_blank">@sreccardo</a></p>
+                    </div>
+                    <div class="col">
+                        <p><strong>RubyCon Italy 2026</strong></p>
+                        <p class="small-text">8 May 2026</p>
+                        <a href="https://rubycon.it/" target="_blank">rubycon.it</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: false,     // Changed to false to prevent SecurityError in iframe
+            history: false,  // Added false to prevent SecurityError in iframe
+            plugins: [ RevealHighlight ]
+        });
+    </script>
+</body>
 </html>

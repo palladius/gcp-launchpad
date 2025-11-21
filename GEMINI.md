@@ -68,7 +68,7 @@ QR code can wait for v2.
 ## Swim lanes
 
 * I will run NPM foreground job, via `just onramp` which indirectly calls some `npm start <xxx>` we maintain.
-* You will make sure it logs STDOUT under some `log/` folder and will look it up.
+* You will make sure it logs STDOUT under some `log/` folder and will look it up. I'll use a `*.geminilog` so that it wont interfere with gitignore.
 * You do the coding, and error checking.
 * We can both navigate to localhost:8080
   * You can check basic functionality. Note you should be able to navigate through cursors (left and right to change slide).
