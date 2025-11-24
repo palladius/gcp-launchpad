@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.3] - 2025-11-24
+
+### Added
+- Deployment of `onramp-images` to a separate GitHub Pages site (`gcp-launchpad-images`).
+- Documentation of GitHub Pages deployment requirements (PAT, repository initialization).
+- `bin/gh-logs.sh` script for checking GitHub Actions workflow logs.
+
+### Changed
+- Updated GitHub Actions workflow (`.github/workflows/deploy.yml`) to deploy `_site` (containing both `onramp-new` and `onramp-images` content).
+- Modified GitHub Actions deployment to target the `gcp-launchpad` repository only, consolidating deployments.
+- Refactored deployment strategy to avoid cross-repository PAT issues for main deployment.
+- Ensured `gcp-launchpad-images` repository is initialized with a `gh-pages` branch for deployment target.
+- Updated `bin/gh-logs.sh` to handle workflow name variations and fetch specific logs.
+
+### Fixed
+- Resolved persistent GitHub Actions deployment failures related to `Resource not accessible by integration` and `Invalid username or token` errors by providing detailed PAT setup instructions and repository initialization steps.
+- Corrected Netlify CLI deployment scripts (`bin/deploy-to-netlify.sh`, `bin/deploy-to-netlify-images.sh`) to explicitly use site IDs and programmatically configure build settings, resolving `npm build` failures and incorrect publish directories.
+
 ## [0.0.2] - 2025-11-24
 
 ### Added
