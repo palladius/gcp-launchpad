@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+# Netlify-specific ENV vars
+# You can get these from your Netlify dashboard
+# NETLIFY_AUTH_TOKEN: Your personal access token
+# NETLIFY_SITE_ID: The ID of the site you want to deploy to
+
 SITE_NAME="onramp-new"
 SITE_ID="5fe90bd5-5158-422e-a162-cef927f0e8ca" # onramp-new site ID
 
@@ -12,15 +17,6 @@ PROJECT_ROOT="$SCRIPT_DIR/.."
 
 cd "$PROJECT_ROOT"
 
-# Move the state.json file to a temporary location
-if [ -f ".netlify/state.json" ]; then
-    mv .netlify/state.json .netlify/state.json.tmp
-fi
-
-echo "Deploying 'onramp-new' directory to site 'onramp-new' on Netlify..."
-netlify deploy --dir=onramp-new --prod --site onramp-new
-
-# Move the state.json file back
-if [ -f ".netlify/state.json.tmp" ]; then
-    mv .netlify/state.json.tmp .netlify/state.json
-fi
+echo "Deploying 'onramp-new' directory to site '$SITE_NAME' on Netlify..."
+SITE_ID="5fe90bd5-5158-422e-a162-cef927f0e8ca" # onramp-new site ID
+netlify deploy --prod --site "$SITE_NAME"

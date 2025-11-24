@@ -1,0 +1,9 @@
+[build]
+  # This is a static site, so we don't need a build command.
+  command = ""
+  # The directory to deploy.
+  publish = "onramp-new"
+
+[context.images]
+  # This context is for the onramp-images site.
+  publish = "onramp-images"
