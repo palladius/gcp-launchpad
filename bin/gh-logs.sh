@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e
 
-WORKFLOW_NAME="[Gemini] Deploy static content to Pages"
+WORKFLOW_NAME=${1:-"[Gemini] Deploy static content to Pages"}
+
+# Use the specific workflow name for the image-only deployment based on the deploy-images.yml file.
+# The exact name is: "[Gemini] Deploy Image-Only Presentation to a Separate Repository"
+WORKFLOW_NAME="[Gemini] Deploy Image-Only Presentation to a Separate Repository"
 
 echo "Fetching the latest run ID for workflow: '$WORKFLOW_NAME'..."
 RUN_ID=$(gh run list --workflow "$WORKFLOW_NAME" --limit 1 --json databaseId --jq '.[0].databaseId')

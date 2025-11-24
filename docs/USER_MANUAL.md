@@ -29,17 +29,16 @@ You can combine these parameters using the `&` symbol.
 
 To create a link for an event in Geneva, Switzerland, with a Swiss flag emoji and a specific reclaim URL, you would construct the URL like this:
 
-```
-# Text Version
+*  Text Version
 PROD Netlify: https://onramp-new.netlify.app/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
 PROD GitHub Pages: https://palladius.github.io/gcp-launchpad/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
 Dev: http://localhost:8081/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
-```
+* Image version:
 
 Or for the image-only version:
-```
-https://onramp-images.netlify.app/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva, CH&emoji=🇨🇭
-```
+
+* Netlify: https://onramp-images.netlify.app/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva, CH&emoji=🇨🇭
+* GH Pages: https://palladius.github.io/gcp-launchpad-images/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH&emoji=🇨🇭
 
 This will result in a presentation with a green "ACTIVE" status, a credit link pointing to the Geneva URL, and "Geneva, CH 🇨🇭" displayed on the first slide.
 

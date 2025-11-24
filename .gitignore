@@ -14,3 +14,5 @@ node_modules/
 # Local Netlify folder
 .netlify
 .gcp-launchpad
+.env
+.github/workflows/deploy-riccardo-images.yml
