@@ -20,3 +20,7 @@ onramp:
 
 onramp-images:
     npm start -- --port=8080 --cwd onramp-new/ --index images-only.html  2>&1 | tee log/onramp-images.geminilog
+
+
+check-deployment-logs:
+    bash bin/gh-logs.sh
