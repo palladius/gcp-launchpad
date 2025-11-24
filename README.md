@@ -34,8 +34,12 @@ To publish this presentation as a GitHub Project Page (e.g., `https://palladius.
 
 ## Published on
 
-1. Netlify Text: https://onramp-new.netlify.app/ for the TEXT version
-2. Netlify Images: `npm run start-images` on https://onramp-images.netlify.app/
+Code: https://github.com/palladius/gcp-launchpad/
+
+1. **Text version**: https://onramp-new.netlify.app/ for the TEXT version
+   1. Now also published on https://palladius.github.io/gcp-launchpad/
+2. **Images version**: `npm run start-images` on https://onramp-images.netlify.app/
+   1.
 
 ## Features
 
