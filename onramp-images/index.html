@@ -29,7 +29,10 @@
                 <div id="status-box" style="padding: 20px; border-radius: 10px; color: white; margin-bottom: 20px;">
                     Credit Link Status
                 </div>
-                <h2>Onramp Images</h2>
+                <h2 id="main-title">Onramp Images</h2>
+                <p>
+                    <span id="location-placeholder"></span> <span id="emoji-placeholder"></span>
+                </p>
             </section>
 
             <section class="center">
@@ -133,6 +136,11 @@
             </section>
 
         </div>
+
+        <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
+            <span>Onramp Slides v.0.0.2</span> | 
+            <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
+        </footer>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
@@ -143,9 +151,15 @@
             const urlParams = new URLSearchParams(window.location.search);
             const onrampUrlFromQuery = urlParams.get('onramp_url');
             const onrampUrlFromData = document.body.dataset.onrampUrl;
+            const location = urlParams.get('location');
+            const emoji = urlParams.get('emoji');
 
             const onrampUrl = onrampUrlFromQuery || onrampUrlFromData;
             const statusBox = document.getElementById('status-box');
+            const locationPlaceholder = document.getElementById('location-placeholder');
+            const emojiPlaceholder = document.getElementById('emoji-placeholder');
+            const mainTitle = document.getElementById('main-title');
+            const selfLink = document.getElementById('self-link');
 
             if (onrampUrl) {
                 // If a URL is found, update the status box to GREEN
@@ -155,6 +169,24 @@
                 // If no URL is found, set status box to RED
                 statusBox.style.backgroundColor = 'red';
                 statusBox.textContent = 'Credit Link: INACTIVE';
+            }
+
+            // Update location and emoji if they exist
+            if (location) {
+                locationPlaceholder.textContent = `| ${location}`;
+            }
+            if (emoji) {
+                emojiPlaceholder.textContent = emoji;
+            }
+
+            // Dynamically update the main title if location and emoji are present
+            if (location && emoji && mainTitle) {
+                mainTitle.innerHTML = `${emoji} Welcome, ${location}!`
+            }
+
+            // Update the self-referencing link
+            if (selfLink) {
+                selfLink.href = window.location.href;
             }
 
             // --- Initialize Reveal.js ---
