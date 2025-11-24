@@ -1,5 +1,5 @@
 # Workflow for deploying the image-only presentation to the gcp-launchpad-images repository
-name: Deploy Image-Only Presentation to a Separate Repository
+name: "[Gemini] Deploy Image-Only Presentation to a Separate Repository"
 
 on:
   # Runs on pushes targeting the main branch of the gcp-launchpad repository
@@ -27,3 +27,9 @@ jobs:
           repository-name: palladius/gcp-launchpad-images
           # The personal access token which has write permissions to the target repository.
           token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
+          # This will create the gh-pages branch if it doesn't exist
+          git-config-name: "github-actions[bot]"
+          git-config-email: "41898282+github-actions[bot]@users.noreply.github.com"
+          commit-message: "Deploying to gh-pages"
+          # This will prevent the action from failing if the branch doesn't exist yet
+          silent: true
