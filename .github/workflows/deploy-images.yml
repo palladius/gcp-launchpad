@@ -1,0 +1,29 @@
+# Workflow for deploying the image-only presentation to the gcp-launchpad-images repository
+name: Deploy Image-Only Presentation to a Separate Repository
+
+on:
+  # Runs on pushes targeting the main branch of the gcp-launchpad repository
+  push:
+    branches: ['main']
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to gcp-launchpad-images repository
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          # The branch the action should deploy to.
+          branch: gh-pages
+          # The folder the action should deploy.
+          folder: onramp-images
+          # The repository to deploy to.
+          repository-name: palladius/gcp-launchpad-images
+          # The personal access token which has write permissions to the target repository.
+          token: ${{ secrets.GH_PAGES_DEPLOY_TOKEN }}
