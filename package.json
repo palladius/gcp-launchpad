@@ -9,18 +9,19 @@
   "license": "MIT",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp serve",
+    "start": "gulp serve --cwd=onramp-new/",
+    "start-original": "gulp serve",
     "build": "gulp build",
     "serve-onramp": "just serve-onramp"
   },
   "author": {
-    "name": "Hakim El Hattab",
-    "email": "hakim.elhattab@gmail.com",
-    "web": "https://hakim.se"
+    "name": "Riccardo Carlesso",
+    "email": "ricc+onramp@google.com",
+    "web": "https://trygcp.dev/"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hakimel/reveal.js.git"
+    "url": "git://github.com/palladius/gcp-launchpad"
   },
   "engines": {
     "node": ">=18.0.0"
