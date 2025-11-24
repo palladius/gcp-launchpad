@@ -11,6 +11,8 @@ More info: b/425877073
 
 ## Publish
 
+We enabled a GHA now: https://github.com/palladius/gcp-launchpad/actions/workflows/deploy.yml
+
 To publish this presentation as a GitHub Project Page (e.g., `https://palladius.github.io/reveal.js`), follow these steps:
 
 1.  **Prepare for Deployment:** Ensure your presentation is ready. You may need to run build commands if the project has them (e.g., `npm run build` or `just build`).
