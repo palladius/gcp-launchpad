@@ -145,7 +145,7 @@
         </div>
 
                 <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
-                    <span>Onramp Slides v.0.0.3</span> | 
+                    <span>Onramp Slides v.0.0.3</span> |
                     <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
                 </footer>    </div>
 
@@ -170,7 +170,8 @@
             if (onrampUrl) {
                 // If a URL is found, update the status box to GREEN
                 statusBox.style.backgroundColor = 'green';
-                statusBox.innerHTML = `Credit Link: ACTIVE - <a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+                statusBox.innerHTML = `<a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+                //statusBox.innerHTML = `Credit Link: ACTIVE - <a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
             } else {
                 // If no URL is found, set status box to RED
                 statusBox.style.backgroundColor = 'red';
@@ -179,7 +180,7 @@
 
             // Update location and emoji if they exist
             if (location) {
-                locationPlaceholder.textContent = `| ${location}`;
+                locationPlaceholder.textContent = `@ ${location}`;
             }
             if (emoji) {
                 emojiPlaceholder.textContent = emoji;

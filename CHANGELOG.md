@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored deployment strategy to avoid cross-repository PAT issues for main deployment.
 - Ensured `gcp-launchpad-images` repository is initialized with a `gh-pages` branch for deployment target.
 - Updated `bin/gh-logs.sh` to handle workflow name variations and fetch specific logs.
+- [images] Ricc Removed two Italian-only slides from Images version.
 
 ### Fixed
 - Resolved persistent GitHub Actions deployment failures related to `Resource not accessible by integration` and `Invalid username or token` errors by providing detailed PAT setup instructions and repository initialization steps.
