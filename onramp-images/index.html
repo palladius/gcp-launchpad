@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[IMAGES] Canonical Onramp + Gemini API Key v2.5.1</title>
+    <title>Canonical Onramp + Gemini API Key v2.5.1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/theme/black.min.css" id="theme">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/monokai.min.css">
@@ -18,40 +18,19 @@
         .reveal h1, .reveal h2, .reveal h3 {
             text-transform: none;
         }
-        .qr-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .qr-box {
-            background: white;
-            padding: 10px;
-            border-radius: 10px;
-            color: black;
-            text-align: center;
-        }
-        .qr-box img {
-            max-width: 150px;
-        }
-        .small-text {
-            font-size: 0.6em;
-        }
-        code {
-            color: #a6e22e;
-        }
-        .two-col {
-            display: flex;
-            gap: 2rem;
-        }
-        .col {
-            flex: 1;
-        }
     </style>
 </head>
-<body>
+<body data-onramp-url="">
     <div class="reveal">
         <div class="slides">
+
+            <!-- Slide 1: Status Indicator -->
+            <section class="center">
+                <div id="status-box" style="padding: 20px; border-radius: 10px; color: white; margin-bottom: 20px;">
+                    Credit Link Status
+                </div>
+                <h2>Onramp Images</h2>
+            </section>
 
             <section class="center">
                 <img src="images/milano-pages/page-01.png" style="max-width: 80%;">
@@ -159,13 +138,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
     <script>
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            center: true,
-            hash: false,     // Changed to false to prevent SecurityError in iframe
-            history: false,  // Added false to prevent SecurityError in iframe
-            plugins: [ RevealHighlight ]
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Dynamic Onramp URL Logic ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const onrampUrlFromQuery = urlParams.get('onramp_url');
+            const onrampUrlFromData = document.body.dataset.onrampUrl;
+
+            const onrampUrl = onrampUrlFromQuery || onrampUrlFromData;
+            const statusBox = document.getElementById('status-box');
+
+            if (onrampUrl) {
+                // If a URL is found, update the status box to GREEN
+                statusBox.style.backgroundColor = 'green';
+                statusBox.innerHTML = `Credit Link: ACTIVE - <a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+            } else {
+                // If no URL is found, set status box to RED
+                statusBox.style.backgroundColor = 'red';
+                statusBox.textContent = 'Credit Link: INACTIVE';
+            }
+
+            // --- Initialize Reveal.js ---
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+                hash: false,
+                history: false,
+                plugins: [ RevealHighlight ]
+            });
         });
     </script>
 </body>

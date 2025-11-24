@@ -49,14 +49,21 @@
         }
     </style>
 </head>
-<body>
+<body data-onramp-url="">
     <div class="reveal">
         <div class="slides">
 
-            <!-- Slide 1: Title & Links -->
+            <!-- Slide 1: Status Indicator -->
             <section class="center">
+                <div id="status-box" style="padding: 20px; border-radius: 10px; color: white; margin-bottom: 20px;">
+                    Credit Link Status
+                </div>
                 <h2>Canonical Onramp + Gemini API Key</h2>
                 <p>Riccardo Carlesso - Developer Advocate</p>
+            </section>
+
+            <!-- Slide 2: Title & Links -->
+            <section class="center">
                 <div class="qr-container">
                     <div class="qr-box">
                         <strong>Slides</strong><br>
@@ -75,17 +82,6 @@
                         <a href="images-only.html" target="_blank">Images Only</a>
                     </div>
                 </div>
-            </section>
-
-            <!-- Slide 2: Table of Contents -->
-            <section>
-                <h3>Table of Contents</h3>
-                <ul>
-                    <li>05 - 🏭 Workshop links</li>
-                    <li>07 - 💰 Reclaim credits</li>
-                    <li>20 - 🔑 Gemini API Key (optional)</li>
-                    <li>27 - 💻 Gemini CLI installation</li>
-                </ul>
             </section>
 
             <!-- Slide 3: The Workshop -->
@@ -122,22 +118,22 @@ gemini # Run Gemini CLI
                 <section class="center">
                     <h3>Step 1: Basic Agent</h3>
                     <p>Create a basic agent that can have a conversation.</p>
-                    <img src="images/milano-slides/page-04.png" alt="Step 1 Robot">
+                    <img src="images/milano-slides/page-04.png" alt="Step 1 Robot" style="max-width: 80%;">
                 </section>
                 <section class="center">
                     <h3>Step 2: Tool Use</h3>
                     <p>Give the agent tools to interact with the world.</p>
-                    <img src="images/milano-slides/page-05.png" alt="Step 2 Robot">
+                    <img src="images/milano-slides/page-05.png" alt="Step 2 Robot" style="max-width: 80%;">
                 </section>
                 <section class="center">
                     <h3>Step 3: Search</h3>
                     <p>"Hey, I can Search!"</p>
-                    <img src="images/milano-slides/page-06.png" alt="Step 3 Robot">
+                    <img src="images/milano-slides/page-06.png" alt="Step 3 Robot" style="max-width: 80%;">
                 </section>
                 <section class="center">
                     <h3>Step 4: MCP</h3>
                     <p>Connecting to external services (like Airbnb).</p>
-                    <img src="images/milano-slides/page-07.png" alt="Step 4 Robot">
+                    <img src="images/milano-slides/page-07.png" alt="Step 4 Robot" style="max-width: 80%;">
                 </section>
             </section>
 
@@ -175,8 +171,18 @@ gemini # Run Gemini CLI
             <section>
                 <section class="center">
                     <h2>Reclaim your $$ credits</h2>
-                    <p>Open this URL:</p>
-                    <a href="https://trygcp.dev/claim/h2-labs-milano25" target="_blank" style="font-size: 1.5em;">trygcp.dev/claim/h2-labs-milano25</a>
+                    
+                    <div id="onramp-link-container">
+                        <p>Open this URL:</p>
+                        <a id="onramp-url-link" href="https://trygcp.dev/claim/h2-labs-milano25" target="_blank" style="font-size: 1.5em;">https://trygcp.dev/claim/h2-labs-milano25</a>
+                    </div>
+
+                    <div id="onramp-missing-message" style="display: none;">
+                        <h3 style="color: red;">Configuration Missing!</h3>
+                        <p>To access the workshop credits, you need a special URL.</p>
+                        <p class="small-text">Please ask the Google expert for the correct link.</p>
+                    </div>
+
                     <p><em>"I like money!"</em></p>
                 </section>
                 
@@ -208,7 +214,7 @@ gemini # Run Gemini CLI
             <section class="center">
                 <h3>Open Cloud Shell</h3>
                 <p>Activate Cloud Shell (icon in top right toolbar).</p>
-                <img src="images/milano-slides/page-10.png" alt="Cloud Shell">
+                <img src="images/milano-slides/page-10.png" alt="Cloud Shell" style="max-width: 80%;">
                 <p class="small-text">It may take a minute or two to start your VM.</p>
                 <p><em>If you don't have a project set up yet, raise your hand! 🙋‍♂️🙋🏾‍♀️</em></p>
             </section>
@@ -221,7 +227,7 @@ gemini # Run Gemini CLI
                 </section>
                 <section>
                     <h3>Get an API Key</h3>
-                    <img src="images/milano-slides/page-21.png" alt="Get an API Key">
+                    <img src="images/milano-slides/page-21.png" alt="Get an API Key" style="max-width: 80%;">
                     <ol>
                         <li>Click "Get an API key" in Google AI Studio.</li>
                         <li>Select your Google Cloud project.</li>
@@ -231,7 +237,7 @@ gemini # Run Gemini CLI
                 </section>
                 <section>
                     <h3>Set Env Variable</h3>
-                    <img src="images/milano-slides/page-23.png" alt="Set Environment Variable">
+                    <img src="images/milano-slides/page-23.png" alt="Set Environment Variable" style="max-width: 80%;">
                     <pre><code class="bash"># Set your key
 export GEMINI_API_KEY="AIzaSyA..."
 
@@ -292,13 +298,46 @@ npx @google/gemini-cli
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
     <script>
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            center: true,
-            hash: false,     // Changed to false to prevent SecurityError in iframe
-            history: false,  // Added false to prevent SecurityError in iframe
-            plugins: [ RevealHighlight ]
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Dynamic Onramp URL Logic ---
+            const urlParams = new URLSearchParams(window.location.search);
+            const onrampUrlFromQuery = urlParams.get('onramp_url');
+            const onrampUrlFromData = document.body.dataset.onrampUrl;
+
+            const onrampUrl = onrampUrlFromQuery || onrampUrlFromData;
+
+            const linkElement = document.getElementById('onramp-url-link');
+            const linkContainer = document.getElementById('onramp-link-container');
+            const missingMessage = document.getElementById('onramp-missing-message');
+            const statusBox = document.getElementById('status-box');
+
+            if (onrampUrl) {
+                // If a URL is found, update the link and status box to GREEN
+                linkElement.href = onrampUrl;
+                linkElement.textContent = onrampUrl;
+                linkContainer.style.display = 'block';
+                missingMessage.style.display = 'none';
+                
+                statusBox.style.backgroundColor = 'green';
+                statusBox.innerHTML = `Credit Link: ACTIVE - <a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+            } else {
+                // If no URL is found, show the error message and set status box to RED
+                linkContainer.style.display = 'none';
+                missingMessage.style.display = 'block';
+
+                statusBox.style.backgroundColor = 'red';
+                statusBox.textContent = 'Credit Link: INACTIVE';
+            }
+
+            // --- Initialize Reveal.js ---
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                center: true,
+                hash: false,
+                history: false,
+                plugins: [ RevealHighlight ]
+            });
         });
     </script>
 </body>

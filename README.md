@@ -34,5 +34,12 @@ To publish this presentation as a GitHub Project Page (e.g., `https://palladius.
 
 ## Published on
 
-1. Netlify: https://onramp-new.netlify.app/ for the TEXT version
-2. Netlify: `npm run start-images` on
+1. Netlify Text: https://onramp-new.netlify.app/ for the TEXT version
+2. Netlify Images: `npm run start-images` on https://onramp-images.netlify.app/
+
+## Features
+
+This website allows you to attach a few interesting variables:
+
+* `http://localhost:8081/?onramp_url=https://YOUR-NEW-URL.com` (or same from https://onramp-images.netlify.app/)
+*

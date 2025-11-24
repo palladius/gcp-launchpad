@@ -67,12 +67,20 @@ QR code can wait for v2.
 
 ## Swim lanes
 
-* I will run NPM foreground job, via `just onramp` which indirectly calls some `npm start <xxx>` we maintain.
+* I will run NPM foreground job, via `just onramp` on port 8080  which indirectly calls some `npm start <xxx>` we maintain.
 * You will make sure it logs STDOUT under some `log/` folder and will look it up. I'll use a `*.geminilog` so that it wont interfere with gitignore.
 * You do the coding, and error checking.
 * We can both navigate to localhost:8080
   * You can check basic functionality. Note you should be able to navigate through cursors (left and right to change slide).
   * I can check more sophisticated imagery and look and feel.
+* I'm also maintaining a SECOND `just onramp-images` on port 8081.
+
+### Two apps, one framework
+
+1. `just onramp`, port 8080, renders an ugly text only solution
+2. `just onramp-images`, port 8081, renders a beautiful, yet unmaintainable images-only solution
+
+The idea is that someday soon we can have a mix of text (when we need control) and images (when we need beauty) and we can get rid of both suboptimal solutions.
 
 ## Testing
 
@@ -90,3 +98,4 @@ QR code can wait for v2.
 
 * Web page: trygcp.dev
 * Slide Deck: https://docs.google.com/presentation/d/1kGxf44SddFt4jUJJuMLlXwezgdX4352Q49Jwqg50u0E/edit?slide=id.g3445d1a3424_0_438&pli=1#slide=id.g3445d1a3424_0_438
+* `docs/` contains self-explainatory issues, fixes, documentation we've done.

@@ -19,7 +19,11 @@ onramp:
     npm start -- --port=8080 --cwd onramp-new/  2>&1 | tee log/onramp.geminilog
 
 start-images:
-    npm start -- --port=8080 --cwd onramp-images/  2>&1 | tee log/onramp-images.geminilog
+    npm start -- --port=8081 --cwd onramp-images/  2>&1 | tee log/onramp-images8081.geminilog
+
+
+start-images-with-onramp-url:
+    ONRAMP_URL=https://example.com/reclaim/from-justfile just start-images
 
 
 check-deployment-logs:
