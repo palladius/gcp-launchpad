@@ -1,0 +1,11 @@
+
+> reveal.js@5.2.1 start
+> gulp serve --port=8080 --cwd onramp-new/
+
+[10:47:39] Working directory changed to ~/git/reveal.js/onramp-new
+[10:47:40] Using gulpfile ~/git/reveal.js/gulpfile.js
+[10:47:40] Starting 'serve'...
+[10:47:40] [32mStarting server...[39m
+[10:47:40] [32mServer started http://localhost:8080[39m
+[10:47:40] [32mLiveReload started on port 35729[39m
+[10:47:40] [32mRunning server[39m
