@@ -9,7 +9,8 @@
   "license": "MIT",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp serve --cwd=onramp-new/",
+    "start": "gulp serve",
+    "start-images": "gulp serve --cwd onramp-images/ --port 8082",
     "start-original": "gulp serve",
     "build": "gulp build",
     "serve-onramp": "just serve-onramp"

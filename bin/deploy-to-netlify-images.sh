@@ -13,12 +13,10 @@ PROJECT_ROOT="$SCRIPT_DIR/.."
 cd "$PROJECT_ROOT"
 
 # Temporarily rename images-only.html to index.html for deployment
-cp onramp-new/images-only.html onramp-new/index.html
+#cp onramp-new/images-only.html onramp-new/index.html
 
 echo "Deploying to Netlify from $PWD"
 netlify deploy --dir=onramp-new --prod
 
 # Revert the rename
 rm onramp-new/index.html
-mv onramp-new/images-only.html onramp-new/index.html
-mv onramp-new/index.html onramp-new/images-only.html

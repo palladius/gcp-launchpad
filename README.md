@@ -31,3 +31,8 @@ To publish this presentation as a GitHub Project Page (e.g., `https://palladius.
     git push origin gh-pages
     ```
 6.  **Enable GitHub Pages:** Go to your repository settings on GitHub, navigate to the "Pages" section, and select the `gh-pages` branch as the source for GitHub Pages.
+
+## Published on
+
+1. Netlify: https://onramp-new.netlify.app/ for the TEXT version
+2. Netlify: `npm run start-images` on
