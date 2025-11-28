@@ -87,6 +87,12 @@ The idea is that someday soon we can have a mix of text (when we need control) a
 * The final product should look loyal to the original:
   * Page 1 of the rendered page should have same text and same images as slide 1 in `rag/public-slides/`
 
+Testing URLs:
+
+1. PROD: https://palladius.github.io/gcp-launchpad-images/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH&emoji=%F0%9F%87%A8%F0%9F%87%AD
+2. Localhost with URL and Location: http://localhost:8081/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH 
+3. Same as above, but page 7: http://localhost:8081/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH#7
+
 ## Publishing
 
 * Publish to github pages.
