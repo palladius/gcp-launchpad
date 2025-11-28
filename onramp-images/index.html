@@ -36,6 +36,7 @@
                 <p>We're here to support you while you reclaim GCP credits.</p>
                     <span id="location-placeholder"></span> <span id="emoji-placeholder"></span>
                 </p>
+                <div id="qrcode-self-link" style="margin-top: 1em; display: inline-block; padding: 1em; border-radius: 5px;"></div>
             </section>
 
             <section class="center">
@@ -150,7 +151,7 @@
         </div>
 
                 <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
-                    <span>Onramp Slides v.0.1.0</span> |
+                    <span>Onramp Slides v.0.1.1</span> |
                     <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
                 </footer>    </div>
 
@@ -227,6 +228,18 @@
             // Update the self-referencing link
             if (selfLink) {
                 selfLink.href = window.location.href;
+            }
+
+            // Generate self-link QR code on slide 1
+            const qrcodeSelfLinkContainer = document.getElementById('qrcode-self-link');
+            if (qrcodeSelfLinkContainer) {
+                const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                qrcodeSelfLinkContainer.style.backgroundColor = isLocalhost ? 'gray' : '#4285F4';
+                new QRCode(qrcodeSelfLinkContainer, {
+                    text: window.location.href,
+                    width: 128,
+                    height: 128
+                });
             }
 
             // Show workshop slides if requested
