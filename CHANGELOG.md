@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [images] Updated internal links to use Reveal.js anchors (`#/workshop`, `#/credits`, `#/gemini-cli`, etc.) for seamless navigation.
 - [images] Renamed the `cli` section ID to `gemini-cli` to follow kebab-case URL conventions.
 - [images] Prettified the "Install Gemini CLI" slide with a code block and direct documentation link.
+- [images] Added a `.tip` CSS class for stylish, consistent hints with a lightbulb emoji.
+- [images] Fixed the API Key code block (Slide 24) to use proper syntax highlighting.
+- [images] Left-aligned the main menu items for better visual flow.
 
 ## [0.1.5] - 2025-11-28
 
