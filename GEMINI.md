@@ -25,7 +25,7 @@ Your first job is to extract content from the Google Slides in a SMART way (text
 
 ## Publishing
 
-We will then publish this website as github pages.
+This website is published as GitHub pages.
 
 The idea is that i can launch the website with some sort of querystring parameter or having a YAML/JSON config in the home (easy to edit) so i can serve multiple events.
 The ultimate need is, I want to be able to publish "two" pages at the same time and give a single perma-url to my people, 100 people in Milan, 100 in Toronto, and be able to feed them different pages.
