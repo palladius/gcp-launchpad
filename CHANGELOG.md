@@ -5,35 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.6] - 2025-11-28
+## [0.1.0] - 2025-11-28
 
 ### Added
-- [images] Added a dynamic status box, QR code, and plain text URL to slide 8 for credit redemption.
-- [images] Added a descriptive paragraph on slide 8.
-- [images] Made the credit redemption URL on slide 8 a clickable link with vibrant orange arrow emojis and a line break for emphasis.
-- [images] Reduced the font size of the instructional text on slide 8.
+- [images] Added slide numbers for easy navigation.
+- [images] Implemented optional slide sections, toggled by a `show_workshop` URL parameter.
+- [images] Created a dynamic credit redemption slide (slide 8) with a status box, scannable QR code, and a clickable URL with emojis.
 
 ### Changed
-- Bumped version to 0.0.6.
+- **Major Version Bump to 0.1.0**: This release marks a significant milestone in features and interactivity.
+- [images] Refined the UI on the credit redemption slide for better visual hierarchy and usability.
 
 ### Fixed
-- [images] Fixed QR code scannability by adding a white background and padding.
-
-## [0.0.5] - 2025-11-28
-
-### Added
-- [images] Added optional 'Riccardo Workshop' slides, toggled by `show_workshop=true` URL parameter.
-
-### Changed
-- Bumped version to 0.0.5.
-
-## [0.0.4] - 2025-11-28
-
-### Added
-- [images] Added slide numbers to the presentation.
-
-### Changed
-- Bumped version to 0.0.4.
+- [images] Corrected QR code scannability issues by adding a white background and padding.
 
 ## [0.0.3] - 2025-11-24
 
