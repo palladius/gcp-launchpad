@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] - 2025-11-28
+
+### Changed
+
+- [images] Refactored the "Start Here" menu (Slide 4) with a modern, colorful grid layout using Google colors (Blue, Red, Yellow, Green) and emojis.
+- [images] Added the Gemini logo to the "Install Gemini CLI" button for better branding.
+- [images] Implemented "UP" arrow key navigation to quickly return to the main menu from any slide.
+- [images] Updated internal links to use Reveal.js anchors (`#/workshop`, `#/credits`, `#/gemini-cli`, etc.) for seamless navigation.
+- [images] Renamed the `cli` section ID to `gemini-cli` to follow kebab-case URL conventions.
+- [images] Prettified the "Install Gemini CLI" slide with a code block and direct documentation link.
+
 ## [0.1.5] - 2025-11-28
 
 ### Changed
