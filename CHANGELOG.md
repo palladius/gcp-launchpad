@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] - 2025-11-28
+
+### Changed
+
+- [images] Added a direct link to the `WORKSHOP.md` on GitHub in the workshop section.
+- [images] Updated the footer with a "made with 💛" message and credit.
+- [images] Removed the debug link from the footer.
+
 ## [0.1.6] - 2025-11-28
 
 ### Changed
