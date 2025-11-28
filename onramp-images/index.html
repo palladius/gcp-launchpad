@@ -30,8 +30,10 @@
                     Credit Link Status
                 </div>
                 <h2 id="main-title"><tt>trygcp.dev</tt> Instructions</h2>
-                <p>Public instructions on how to use TryGcp Credit website (b/425877073)</p>
+            <!-- <p>Public instructions on how to use TryGcp Credit website (b/425877073)</p>
+                                                                                                                                                                                                                                                             -->
                 <p>
+                <p>We're here to support you while you reclaim GCP credits.</p>
                     <span id="location-placeholder"></span> <span id="emoji-placeholder"></span>
                 </p>
             </section>
@@ -40,12 +42,13 @@
                 <img src="images/milano-pages/page-01.png" style="max-width: 80%;">
             </section>
             <section class="center">
-                <img src="images/milano-pages/page-02.png" style="max-width: 80%;">
+                <h2>Reclaim your $$ credits</h2>
             </section>
             <section class="center">
                 <img src="images/milano-pages/page-03.png" style="max-width: 80%;">
             </section>
             <section class="center">
+                <!-- TOC - maybe I shuld remove -->
                 <img src="images/milano-pages/page-04.png" style="max-width: 80%;">
             </section>
             <section class="center">
@@ -145,7 +148,7 @@
         </div>
 
                 <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
-                    <span>Onramp Slides v.0.0.4</span> |
+                    <span>Onramp Slides v.0.0.5</span> |
                     <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
                 </footer>    </div>
 
@@ -159,6 +162,7 @@
             const onrampUrlFromData = document.body.dataset.onrampUrl;
             const location = urlParams.get('location');
             const emoji = urlParams.get('emoji');
+            const showWorkshop = urlParams.get('show_workshop');
 
             const onrampUrl = onrampUrlFromQuery || onrampUrlFromData;
             const statusBox = document.getElementById('status-box');
@@ -194,6 +198,14 @@
             // Update the self-referencing link
             if (selfLink) {
                 selfLink.href = window.location.href;
+            }
+
+            // Show workshop slides if requested
+            if (showWorkshop === 'true') {
+                const workshopSection = document.getElementById('riccardo-workshop');
+                if (workshopSection) {
+                    workshopSection.style.display = 'block';
+                }
             }
 
             // --- Initialize Reveal.js ---
