@@ -37,6 +37,10 @@
                     <span id="location-placeholder"></span> <span id="emoji-placeholder"></span>
                 </p>
                 <div id="qrcode-self-link" style="margin-top: 1em; display: inline-block; padding: 1em; border-radius: 5px;"></div>
+                <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 1em; font-size: 0.8em;">
+                    <span id="location-info"></span>
+                    <span id="date-info"></span>
+                </div>
             </section>
 
             <section class="center">
@@ -151,7 +155,7 @@
         </div>
 
                 <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
-                    <span>Onramp Slides v.0.1.1</span> |
+                    <span>Onramp Slides v.0.1.2</span> |
                     <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
                 </footer>    </div>
 
@@ -222,12 +226,28 @@
 
             // Dynamically update the main title if location and emoji are present
             if (location && emoji && mainTitle) {
-                mainTitle.innerHTML = `${emoji} Welcome, ${location}!`
+                mainTitle.innerHTML = `${emoji} Welcome, developer!`
             }
 
             // Update the self-referencing link
             if (selfLink) {
                 selfLink.href = window.location.href;
+            }
+
+            // Add location and date info to slide 1
+            const locationInfo = document.getElementById('location-info');
+            const dateInfo = document.getElementById('date-info');
+
+            if (locationInfo && location) {
+                locationInfo.innerHTML = `🗺️ ${location}`;
+            }
+
+            if (dateInfo) {
+                const today = new Date();
+                const day = String(today.getDate()).padStart(2, '0');
+                const month = today.toLocaleString('en-GB', { month: 'long' });
+                const year = today.getFullYear();
+                dateInfo.innerHTML = `📅 ${day} ${month}, ${year}`;
             }
 
             // Generate self-link QR code on slide 1
