@@ -7,7 +7,11 @@ just onramp
 open http://localhost:8080/?event=milan
 ```
 
-More info: b/425877073
+Internal info:
+* Bug: More info: b/425877073
+* PRD: go/onramp-autobahn
+
+Real case example: https://palladius.github.io/gcp-launchpad-images/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH&emoji=%F0%9F%87%A8%F0%9F%87%AD
 
 ## Publish
 

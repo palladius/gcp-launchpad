@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.6] - 2025-11-28
+
+### Added
+- [images] Added a dynamic status box, QR code, and plain text URL to slide 8 for credit redemption.
+- [images] Added a descriptive paragraph on slide 8.
+- [images] Made the credit redemption URL on slide 8 a clickable link with vibrant orange arrow emojis and a line break for emphasis.
+- [images] Reduced the font size of the instructional text on slide 8.
+
+### Changed
+- Bumped version to 0.0.6.
+
+### Fixed
+- [images] Fixed QR code scannability by adding a white background and padding.
+
 ## [0.0.5] - 2025-11-28
 
 ### Added

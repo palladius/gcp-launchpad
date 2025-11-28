@@ -54,17 +54,19 @@
             <section class="center">
                 <img src="images/milano-pages/page-05.png" style="max-width: 80%;">
             </section>
-            <!--  Lets also remove the Dicono di Giancarlo..
-            <section class="center">
-                    <h1>Nicola</h1>
-                <img src="images/milano-pages/page-06.png" style="max-width: 80%;">
-            </section>
-            -->
             <section class="center">
                 <img src="images/milano-pages/page-07.png" style="max-width: 80%;">
             </section>
             <section class="center">
-                <img src="images/milano-pages/page-08.png" style="max-width: 80%;">
+                <h2>Claim Your Credits</h2>
+                <div id="status-box-slide8" style="padding: 20px; border-radius: 10px; color: white; margin-bottom: 20px;">
+                    Credit Link Status
+                </div>
+                <div id="qrcode-slide8"
+                    style="margin-top: 20px; display: inline-block; background: white; padding: 1em; border-radius: 5px;"></div>
+                <a id="onramp-url-text-slide8" href="#" target="_blank"
+                    style="margin-top: 1em; font-family: monospace; font-size: 0.8em; color: white;"></a>
+                <p style="font-size: 0.6em;">Check the link or the QR code to claim your credits</p>
             </section>
             <section class="center">
                 <img src="images/milano-pages/page-09.png" style="max-width: 80%;">
@@ -148,12 +150,13 @@
         </div>
 
                 <footer style="position: absolute; bottom: 10px; left: 10px; font-size: 0.6em; z-index: 100;">
-                    <span>Onramp Slides v.0.0.5</span> |
+                    <span>Onramp Slides v.0.0.6</span> |
                     <a id="self-link" href="#" style="color: lightgray;">Debug Link</a>
                 </footer>    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/reveal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.5.0/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Dynamic Onramp URL Logic ---
@@ -170,16 +173,42 @@
             const emojiPlaceholder = document.getElementById('emoji-placeholder');
             const mainTitle = document.getElementById('main-title');
             const selfLink = document.getElementById('self-link');
+            const statusBoxSlide8 = document.getElementById('status-box-slide8');
+            const qrcodeSlide8Container = document.getElementById('qrcode-slide8');
+            const onrampUrlTextSlide8 = document.getElementById('onramp-url-text-slide8');
 
             if (onrampUrl) {
                 // If a URL is found, update the status box to GREEN
                 statusBox.style.backgroundColor = 'green';
                 statusBox.innerHTML = `<a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
-                //statusBox.innerHTML = `Credit Link: ACTIVE - <a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+
+                // Update slide 8 status box and generate QR code
+                if (statusBoxSlide8) {
+                    statusBoxSlide8.style.backgroundColor = 'green';
+                    statusBoxSlide8.innerHTML = `<a href="${onrampUrl}" target="_blank" style="color: white; text-decoration: underline;">Click here to claim your credits!</a>`;
+                }
+                if (qrcodeSlide8Container) {
+                    new QRCode(qrcodeSlide8Container, {
+                        text: onrampUrl,
+                        width: 256,
+                        height: 256
+                    });
+                }
+                if (onrampUrlTextSlide8) {
+                    onrampUrlTextSlide8.href = onrampUrl;
+                    onrampUrlTextSlide8.innerHTML = `<br>▶️ ${onrampUrl} ◀️`;
+                }
+
             } else {
                 // If no URL is found, set status box to RED
                 statusBox.style.backgroundColor = 'red';
                 statusBox.textContent = 'Credit Link: INACTIVE';
+
+                // Update slide 8 status box with a more descriptive error
+                if (statusBoxSlide8) {
+                    statusBoxSlide8.style.backgroundColor = 'red';
+                    statusBoxSlide8.textContent = 'ERROR: No credit link provided. Please reach out to a proctor or you won\'t be able to reclaim anything.';
+                }
             }
 
             // Update location and emoji if they exist
