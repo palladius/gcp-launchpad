@@ -40,14 +40,13 @@ To publish this presentation as a GitHub Project Page (e.g., `https://palladius.
 
 Code: https://github.com/palladius/gcp-launchpad/
 
-1. **Text version**: https://onramp-new.netlify.app/ for the TEXT version
-   1. Now also published on https://palladius.github.io/gcp-launchpad/
-2. **Images version**: `npm run start-images` on https://onramp-images.netlify.app/
-   1.
+1. **Text version**: https://palladius.github.io/gcp-launchpad/
+2. **Images version**: `npm run start-images` (locally) or https://palladius.github.io/gcp-launchpad-images/
 
 ## Features
 
 This website allows you to attach a few interesting variables:
 
-* `http://localhost:8081/?onramp_url=https://YOUR-NEW-URL.com` (or same from https://onramp-images.netlify.app/)
-*
+* `http://localhost:8081/?onramp_url=https://YOUR-NEW-URL.com`
+
+> **Note**: Previous Netlify deployments (`onramp-new.netlify.app` and `onramp-images.netlify.app`) are currently broken and have been removed from documentation.

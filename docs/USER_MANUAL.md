@@ -31,18 +31,16 @@ To create a link for an event in Geneva, Switzerland, with a Swiss flag emoji an
 
 Text Version:
 
-* PROD Netlify: https://onramp-new.netlify.app/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
 * PROD GitHub Pages: https://palladius.github.io/gcp-launchpad/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
 * Dev (localhost): http://localhost:8081/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva&emoji=🇨🇭
 
 Or for the image-only version:
 
-* Netlify: https://onramp-images.netlify.app/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva, CH&emoji=🇨🇭
 * GH Pages: https://palladius.github.io/gcp-launchpad-images/?onramp_url=https://trygcp.dev/claim/h2-labs-geneva&location=Geneva,CH&emoji=🇨🇭
 
 This will result in a presentation with a green "ACTIVE" status, a credit link pointing to the Geneva URL, and "Geneva, CH 🇨🇭" displayed on the first slide.
 
-**Note**. Netlify seems to fail now, but the GHP seems to work fine!
+**Note**. Netlify links have been removed as they are currently broken. GitHub Pages (GHP) works fine!
 
 Result:
 
