@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.9] - 2026-10-22
+
+### Added
+
+- :brain: Sumaron Intelligence v0.3.0 analysis artifacts:
+  - :shield: Added defect & vulnerability scanner report (`docs/sumaron/HOW_TO_MAKE_THIS_BETTER.md` & `docs/sumaron/about.md`).
+  - :clipboard: Added aggregated & prioritized multi-source TODOs (`docs/sumaron/AGGREGATED_TODOS.md`).
+  - :robot: Added AI agent operational mastery skill (`skills/how-to-use-gcp-launchpad/SKILL.md`).
+  - :art: Added AI-generated architecture and ER diagrams in `assets/`.
+  - :page_facing_up: Added automated repository summary (`sumaron-summary.md` and `.sumaron.json`).
+
 ## [0.1.8] - 2025-12-05
 
 ### Removed
